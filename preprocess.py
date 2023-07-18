@@ -23,7 +23,7 @@ def extract_frames(video_path, extract_folder, frame_rate):
             # 按照设置的频率保存图片
             if index % frame_rate == 0:
                 print('Extracting the No.{} frame in {}.mp4!\n'.format(str(index), video_name))
-                extract_path = os.path.join(extract_folder, '{}-{:04d}.jpg'.format(video_name, index))
+                extract_path = os.path.join(extract_folder, '{}-{:05d}.jpg'.format(video_name, index))
                 if os.path.exists(extract_path):
                     print('Already extracted.')
                     index += 1 
