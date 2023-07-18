@@ -23,7 +23,7 @@ def extract_frames(video_path, extract_folder, frame_rate):
             # 按照设置的频率保存图片
             if index % frame_rate == 0:
                 print('Extracting the No.{} frame in {}.mp4!\n'.format(str(index), video_name))
-                extract_path = os.path.join(extract_folder, '{}-{:03d}.jpg'.format(video_name, index))
+                extract_path = os.path.join(extract_folder, '{}-{:04d}.jpg'.format(video_name, index))
                 if os.path.exists(extract_path):
                     print('Already extracted.')
                     index += 1 
@@ -40,12 +40,13 @@ def extract_frames(video_path, extract_folder, frame_rate):
 
 
 def main():
-    video_path_list = glob.glob(os.path.join('D:\\UAV Data\\Ji-Wei Highway\\Videos', '*.mp4'))      # 视频路径列表
+    video_path_list = glob.glob(os.path.join('D:\\Data\\UAV\\Ji-Wei Highway\\Videos', '*cut.mp4'))  # 视频路径列表
     video_path_list.sort()
-    extract_folder = 'D:\\UAV Data\\Ji-Wei Highway\\Images'                                         # 存放提取视频帧的位置
-    frame_rate = 200                                                                                # 帧提取频率
+    # print(video_path_list)
+    extract_folder = 'D:\\Data\\Uav\\Ji-Wei Highway\\Images'                                        # 存放提取视频帧的位置
+    frame_rate = 100                                                                                # 帧提取频率
 
-    for video_path in video_path_list[-7:]:
+    for video_path in video_path_list:
         extract_frames(video_path, extract_folder, frame_rate)                                      # 提取帧图片，并保存到指定路径
 
 

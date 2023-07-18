@@ -2,7 +2,6 @@ import os
 import glob
 import numpy as np
 import shutil
-from sklearn.model_selection import train_test_split
 
 
 def copy_to_target_path(fname_list, source_path, target_path, mode):
