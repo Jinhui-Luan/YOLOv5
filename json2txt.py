@@ -32,8 +32,20 @@ def json2txt(json_path,save_path):
         #此处面向不同分类，需要改动下面的标签值，如果是多分类，那么需要增加新的if
         #只是单分类的话，可以直接去掉if，把里面的模块拿出来用
  
-        if x['label']=='outlooking':
+        if x['label']=='pier stud':
             txt.write('0') 
+            txt_write(x,img_x,img_y,txt)
+        elif x['label']=='bent cap':
+            txt.write('1') 
+            txt_write(x,img_x,img_y,txt)
+        elif x['label']=='beam hoisting':
+            txt.write('2') 
+            txt_write(x,img_x,img_y,txt)   
+        elif x['label']=='else':
+            txt.write('3') 
+            txt_write(x,img_x,img_y,txt)
+        elif x['label']=='bridge start':
+            txt.write('4') 
             txt_write(x,img_x,img_y,txt)
     txt.close()
     
