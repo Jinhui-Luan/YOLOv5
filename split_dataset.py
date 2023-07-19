@@ -10,7 +10,7 @@ def copy_to_target_path(fname_list, source_path, target_path, mode):
         data_target_path = os.path.join(target_path, 'images', mode, fname+'.jpg')
         shutil.copyfile(data_source_path, data_target_path)
 
-        label_source_path = os.path.join(source_path, 'Annotations', fname+'.txt')
+        label_source_path = os.path.join(source_path, 'TXTAnnotations', fname+'.txt')
         if os.path.exists(label_source_path):
             label_target_path = os.path.join(target_path, 'labels', mode, fname+'.txt')
             shutil.copyfile(label_source_path, label_target_path)
@@ -42,7 +42,7 @@ def split_train_val_test(source_path, target_path, split_rate):
 
  
 if __name__ == '__main__':
-    source_path = 'D:\\Data\\UAV\\Ji-Wei Highway\\Labeled Images\\'                     # 初始路径
+    source_path = 'D:\\Data\\UAV\\Ji-Wei Highway\\Temp\\'                               # 初始路径
     target_path = 'D:\\Projects\\YOLOv5\\dataset\\'                                     # 目标路径
 
     os.makedirs(target_path, exist_ok=True)
@@ -58,6 +58,6 @@ if __name__ == '__main__':
     os.makedirs(os.path.join(target_path, 'labels', 'val'), exist_ok=True)
     os.makedirs(os.path.join(target_path, 'labels', 'test'), exist_ok=True)
 
-    split_rate = [0.6, 0.2, 0.2]                                                        # 数据集划分比例
+    split_rate = [0.8, 0.2, 0]                                                          # 数据集划分比例
 
     split_train_val_test(source_path, target_path, split_rate)
